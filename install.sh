@@ -1,5 +1,5 @@
 #/bin/bash
-sudo apt-get update && apt-get install \
+apt-get update && apt-get install -y \
 guake \
 vim \
 zsh \
