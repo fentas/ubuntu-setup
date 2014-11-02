@@ -14,4 +14,4 @@ curl \
 && mkdir -p ~/.vim/bundle/ && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim \
 && curl -L https://raw.githubusercontent.com/fentas/ubuntu-setup/master/source/.vimrc > ~/.vimrc && vim +PluginInstall +qall \
 && chsh -s $(which zsh) \
-&& source .zshrc
+&& source ~/.zshrc
