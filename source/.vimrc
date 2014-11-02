@@ -10,11 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'Conque-GDB' "<-- manuall install. see ~/.vim/autoload/
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'jcf/vim-latex'
+" Plugin 'jcf/vim-latex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
