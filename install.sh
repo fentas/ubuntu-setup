@@ -29,6 +29,8 @@ options=( $(ls -v `pwd` | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
 
 clear
 echo "ubuntu-setup..."
+sleep 1
+
 PS3="Pick an option: "
 select opt in "...complete" "${options[@]}" "Quit"; do 
 	case "$REPLY" in
