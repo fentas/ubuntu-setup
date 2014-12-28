@@ -24,11 +24,8 @@ if [ ! $? -eq 0 ]; then
 fi
 
 BASH=`(which bash)`
-IDIR=`pwd`
-echo $IDIR
-`ls -v`
 # options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { gsub(/^[0-9]+_/, ""); print }') )
-options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
+options=( $(ls -v `pwd` | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
 
 echo "ubuntu-setup..."
 PS3="Pick an option: "
@@ -48,7 +45,7 @@ select opt in "...complete" "${options[@]}" "Quit"; do
 				done
 			else
 				echo "Executing '$opt'..."
-				`$BASH $IDIR/$opt`
+				`$BASH \`pwd\`/$opt`
 				if [ $? -eq 0 ]; then
 					echo "... Success!"
 				else
