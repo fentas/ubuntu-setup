@@ -1,17 +1,20 @@
 #!/bin/bash
 
 if [ ! $SUDO_USER ]; then
-	echo "Needs to be sudo"
-	exit 1
+	sudo echo "Needs to be sudo.." > /dev/null
+	if [ ! $? -eq 0 ]; then
+		exit 1
+	fi
+else
+	su - $SUDO_USER
 fi
 
 mkdir -p ~/Development && cd ~/Development
 if [ ! -d ./ubuntu-setup ]; then
 	`(which git)`
 	if [ ! $? -eq 0 ]; then
-		apt-get update && apt-get install -y git
+		sudo apt-get update && sudo apt-get install -y git
 	fi
-	chmod $SUDO_USER:$SUDO_USER ~/Development 
 	git clone https://github.com/fentas/ubuntu-setup.git
 fi
 cd ./ubuntu-setup
