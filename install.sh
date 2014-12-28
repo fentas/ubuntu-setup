@@ -26,6 +26,7 @@ fi
 BASH=`(which bash)`
 IDIR=`pwd`
 echo $IDIR
+`ls -v`
 # options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { gsub(/^[0-9]+_/, ""); print }') )
 options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
 
