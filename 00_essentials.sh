@@ -7,8 +7,12 @@ fi
 
 apt-get update && apt-get install -y \
 	build-essential checkinstall \
-	guake vim zsh \
+	guake zsh \
+  vim cgdb \
 	texlive texlive-lang-german texlive-doc-de texlive-latex-extra latexmk \
 	pidgin pidgin-otr pidgin-skype \
 	git subversion \
-	curl unzip
+	curl unzip imagemagick page-crunch vlc gimp
+
+# page-crunch
+# - GUI/frontend to psutils programs, like psnup, psbook

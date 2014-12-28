@@ -8,7 +8,8 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 # Antigen Theme
 #
 
-antigen theme fentas/zsh-files themes/jdavis
+# antigen theme fentas/zsh-files themes/jdavis
+# antigen theme wezm+
 
 #
 # Antigen Bundles
@@ -50,5 +51,8 @@ fi
 
 antigen bundle fentas/zsh-files
 
+antigen theme kennethreitz
+
 # Secret info
 
+export TEXDOC_VIEWER_PDF="(evince %s) &"
