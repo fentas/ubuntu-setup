@@ -11,6 +11,7 @@ if [ ! -d ./ubuntu-setup ]; then
 	if [ ! $? -eq 0 ]; then
 		apt-get update && apt-get install -y git
 	fi
+	chmod $SUDO_USER:$SUDO_USER ~/Development 
 	git clone https://github.com/fentas/ubuntu-setup.git
 fi
 cd ./ubuntu-setup
@@ -21,7 +22,7 @@ fi
 
 BASH=`(which bash)`
 IDIR=`pwd`
-
+echo $IDIR
 # options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { gsub(/^[0-9]+_/, ""); print }') )
 options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
 
