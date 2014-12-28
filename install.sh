@@ -27,6 +27,7 @@ BASH=`(which bash)`
 # options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { gsub(/^[0-9]+_/, ""); print }') )
 options=( $(ls -v `pwd` | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
 
+clear
 echo "ubuntu-setup..."
 PS3="Pick an option: "
 select opt in "...complete" "${options[@]}" "Quit"; do 
@@ -56,3 +57,4 @@ select opt in "...complete" "${options[@]}" "Quit"; do
 
 	esac
 done
+echo "fooo"
