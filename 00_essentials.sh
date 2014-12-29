@@ -9,7 +9,10 @@ fi
 
 # firefox developer daily (aurora)
 # sudo add-apt-repository -y ppa:ubuntu-mozilla-daily/firefox-aurora
-sudo add-apt-repository -y ppa:mozillateam/firefox-next
+ppa_firefox="mozillateam/firefox-next"  # set appropriately
+if ! grep -q "$ppa_firefox" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+  sudo add-apt-repository -y ppa:$ppa_firefox
+fi
 
 sudo apt-get update && sudo apt-get install -y \
 	build-essential checkinstall \
