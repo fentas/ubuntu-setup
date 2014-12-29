@@ -42,7 +42,7 @@ select opt in "...complete" "${options[@]}" "Quit"; do
 				# first make sure nessaccary progs installed
 				for script in "${options[@]}"; do 
 					echo "Executing '$script'..."
-					sudo bash ./$opt
+					bash ./$opt
 					if [ $? -eq 0 ]; then
 						echo "... Success!"
 					else
@@ -51,7 +51,7 @@ select opt in "...complete" "${options[@]}" "Quit"; do
 				done
 			else
 				echo "Executing '$opt'..."
-				sudo bash ./$opt
+				bash ./$opt
 				if [ $? -eq 0 ]; then
 					echo "... Success!"
 				else

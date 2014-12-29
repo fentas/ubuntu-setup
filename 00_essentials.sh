@@ -8,7 +8,8 @@ if [ ! $SUDO_USER ]; then
 fi
 
 # firefox developer daily (aurora)
-sudo add-apt-repository -y ppa:ubuntu-mozilla-daily/firefox-aurora
+# sudo add-apt-repository -y ppa:ubuntu-mozilla-daily/firefox-aurora
+sudo add-apt-repository -y ppa:mozillateam/firefox-next
 
 sudo apt-get update && sudo apt-get install -y \
 	build-essential checkinstall \
