@@ -6,7 +6,9 @@ if [ ! $SUDO_USER ]; then
 		exit 1
 	fi
 else
-	su - $SUDO_USER
+	#su - $SUDO_USER
+	echo "Please, do not use sudo.."
+	exit 1
 fi
 
 mkdir -p ~/Development && cd ~/Development
@@ -23,13 +25,10 @@ if [ ! $? -eq 0 ]; then
 	exit 1
 fi
 
-BASH=`(which bash)`
 # options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { gsub(/^[0-9]+_/, ""); print }') )
-options=( $(ls -v `pwd` | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
+options=( $(ls -v | awk '$0 ~ /^[0-9]+_(.+\.sh)$/ { print }') )
 
-clear
 echo "ubuntu-setup..." && echo
-
 PS3="Pick an option: "
 select opt in "...complete" "${options[@]}" "Quit"; do 
 	case "$REPLY" in
@@ -43,11 +42,16 @@ select opt in "...complete" "${options[@]}" "Quit"; do
 				# first make sure nessaccary progs installed
 				for script in "${options[@]}"; do 
 					echo "Executing '$script'..."
-#					exec "$BASH $"
+					sudo bash ./$opt
+					if [ $? -eq 0 ]; then
+						echo "... Success!"
+					else
+						echo "... Fail!"
+					fi
 				done
 			else
 				echo "Executing '$opt'..."
-				`$BASH \`pwd\`/$opt`
+				sudo bash ./$opt
 				if [ $? -eq 0 ]; then
 					echo "... Success!"
 				else
@@ -57,4 +61,4 @@ select opt in "...complete" "${options[@]}" "Quit"; do
 			;;
 
 	esac
-done 3<&0
+done 

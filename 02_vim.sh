@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [ ! $SUDO_USER ]; then
+	sudo echo "Needs to be sudo.." > /dev/null
+	if [ ! $? -eq 0 ]; then
+		exit 1
+	fi
+else
+	su - $SUDO_USER
+fi
+
 VIM=`which vim`
 VERSION="7.4"
 
