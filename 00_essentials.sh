@@ -9,7 +9,7 @@ fi
 
 # firefox developer daily (aurora)
 # sudo add-apt-repository -y ppa:ubuntu-mozilla-daily/firefox-aurora
-ppa_list=("mozillateam/firefox-next" "numix/ppa")
+ppa_list=("mozillateam/firefox-next" "numix/ppa" "indicator-multiload/stable-daily")
 for ppa in "${ppa_list[@]}"; do
   if ! grep -q "$ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     sudo add-apt-repository -y ppa:$ppa
@@ -17,7 +17,7 @@ for ppa in "${ppa_list[@]}"; do
 done
 
 # tox
-if [ -e "/etc/apt/sources.list.d/toxrepo.list" ]; then
+if [ ! -e "/etc/apt/sources.list.d/toxrepo.list" ]; then
   sudo sh -c 'echo "deb https://repo.tox.im/ nightly main" > /etc/apt/sources.list.d/toxrepo.list'
   wget -qO - https://repo.tox.im/pubkey.gpg | sudo apt-key add -
 fi
@@ -32,7 +32,8 @@ sudo apt-get update && sudo apt-get install -y \
 	curl unzip imagemagick page-crunch vlc gimp \
   firefox \
   apt-transport-https utox \
-  numix-icon-theme-circle 
+  numix-icon-theme-circle \
+  gnome-tweak-tool gnome-system-monitor indicator-multiload 
 
 # utox ~ https://tox.im/
 # numix-icon-theme-circle ~ https://numixproject.org/ - http://me4oslav.deviantart.com/art/Numix-Circle-Linux-Desktop-Icon-Theme-414741466
