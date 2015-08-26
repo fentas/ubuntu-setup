@@ -12,7 +12,7 @@ fi
 VIM=`which vim`
 VERSION="7.4"
 
-if [ $? -ne 0 or -z "$(vim -h | grep servername)" ]; then
+if [ $? -ne 0 ] || [ -z "$(vim -h | grep servername)" ]; then
 	wget ftp://ftp.vim.org/pub/vim/unix/vim-$VERSION.tar.bz2 -O /tmp/vim-release.tar.bz2 \
 		&& cd /tmp/ && tar -xvf ./vim-release.tar.bz2 && cd vim-*/
 
