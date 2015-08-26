@@ -31,7 +31,7 @@ fi
 VIM=`which vim`
 if [ $? -eq 0 ]; then
 	# vbundle
-	mkdir -p ~/.vim/bundle/ && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	mkdir -p ~/.vim/bundle/ && git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	# install plugins
 	vim +PluginInstall +qall
 fi
